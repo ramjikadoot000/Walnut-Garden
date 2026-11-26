@@ -1,0 +1,123 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Syne', 'Space Grotesk', sans-serif;
+    --font-editorial: 'Instrument Serif', Georgia, serif;
+    --font-serif: 'Syne', 'Space Grotesk', sans-serif;
+    --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html, body, #root {
+    position: relative;
+    font-family: var(--font-sans);
+    background-color: #0C0A09;
+    color: #F5EFE6;
+    scroll-behavior: auto;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, .font-serif-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  h1 em,
+  h2 em,
+  h3 em,
+  h4 em,
+  .font-serif-display em,
+  .font-editorial-italic {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    font-size: 1.14em;
+    line-height: 0.95;
+  }
+
+  .font-display-syne {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Full-Screen Cinematic Menu Overlay — 1.8s Reveal & Exit Transition */
+.cinematic-overlay {
+  opacity: 0;
+  transform: translate3d(0, -16px, 0) scale(0.988);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 1.8s;
+}
+
+.cinematic-overlay.active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0A09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #29231E;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

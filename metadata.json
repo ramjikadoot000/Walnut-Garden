@@ -1,0 +1,6 @@
+{
+  "name": "Walnut Cafe — Cafe N Camp, Palampur",
+  "description": "A luxury mountain cafe and tent camp in the Dhauladhar hills of Palampur, Himachal Pradesh, featuring artisanal Pahadi cuisine, bonfire nights, and alpine camping.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
